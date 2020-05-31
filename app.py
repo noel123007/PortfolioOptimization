@@ -1,7 +1,6 @@
 import os
 import scipy.optimize as sco
 import quandl
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
