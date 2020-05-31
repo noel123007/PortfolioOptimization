@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+<div class="container-fluid mt-3">
+  <div class="container">
+    <h1 class="text-center">Portfolio Optimization</h1>
+    <div class="row mt-3 justify-content-center">
+      <div class="col-3">
+        <form action="{{ url_for('home') }}" method="post">
+          <div class="form-group">
+            <input
+              name="principleAmount"
+              type="number"
+              class="form-control"
+              id="principleAmount"
+              aria-describedby="principleAmountArea"
+              placeholder="Enter principle amount"
+            />
+            <small id="principleAmountArea" class="form-text text-muted"
+              >Enter the amount in USD</small
+            >
+            {% if ptype == 'empty' %}
+            <small id="errorHelp" class="text-danger">
+              {{ message }}
+            </small>
+            {% endif %}
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if ptype == 'submitted' %}
+    <div class="row mt-3 justify-content-center">
+      <div class="col text-center">
+        <p>Principle allocation amount in Apple : {{ princealloc_sr_A }}</p>
+        <p>Principle allocation amount in Amazon : {{ princealloc_sr_B }}</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
