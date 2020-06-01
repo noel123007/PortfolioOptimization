@@ -1,5 +1,4 @@
 import os
-import scipy.optimize as sco
 import quandl
 import matplotlib.pyplot as plt
 import numpy as np
