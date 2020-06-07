@@ -1,13 +1,10 @@
 import os
 import quandl
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from flask import Flask, render_template, redirect, url_for, request
 app = Flask(__name__)
 
-plt.switch_backend("TkAgg")
-plt.style.use('fivethirtyeight')
 np.random.seed(777)
 
 quandl.ApiConfig.api_key = '84qJQFf5dTyzjvyxAAyM'
