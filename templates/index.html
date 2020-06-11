@@ -82,53 +82,64 @@
         </form>
       </div>
     </div>
-    {% if ptype == 'submitted' %}
-    <div class="row mt-3 justify-content-center">
-      <div class="col text-center">
-        <p>
-          Principle allocation amount in {{stocks[0]}} : {{ princealloc_sr_A }}
-        </p>
-        <p>
-          Principle allocation amount in {{stocks[1]}} : {{ princealloc_sr_B }}
-        </p>
-        <p>
-          Principle allocation amount in {{stocks[2]}} : {{ princealloc_sr_B }}
-        </p>
-        <p>
-          Principle allocation amount in {{stocks[3]}} : {{ princealloc_sr_B }}
-        </p>
-      </div>
-    </div>
-    {% endif %}
   </div>
-  <div id="chart" style="height: 300px; width: 50%;"></div>
+  {% if ptype == 'submitted' %}
+  <div class="row mt-3 justify-content-center">
+    <div class="col-4">
+      <h4>Benchmark Portfolio (Number of Shares)</h4>
+      <p>
+        {{stocksInput[0]}} : {{ sharesBench[0] }}
+      </p>
+      <p>
+        {{stocksInput[1]}} : {{ sharesBench[1] }}
+      </p>
+      <p>
+        {{stocksInput[2]}} : {{ sharesBench[2] }}
+      </p>
+      <p>
+        {{stocksInput[3]}} : {{ sharesBench[3] }}
+      </p>
+    </div>
+    <div class="col-4">
+      <h4>Sharpe Ratio Portfolio (Number of Shares)</h4>
+      <p>
+        {{stocksInput[0]}} : {{ sharesSharpe[0] }}
+      </p>
+      <p>
+        {{stocksInput[1]}} : {{ sharesSharpe[1] }}
+      </p>
+      <p>
+        {{stocksInput[2]}} : {{ sharesSharpe[2] }}
+      </p>
+      <p>
+        {{stocksInput[3]}} : {{ sharesSharpe[3] }}
+      </p>
+    </div>
+    <div class="col-4">
+      <h4>Minimum Volatility Portfolio (Number of Shares)</h4>
+      <p>
+        {{stocksInput[0]}} : {{ sharesMin[0] }}
+      </p>
+      <p>
+        {{stocksInput[1]}} : {{ sharesMin[1] }}
+      </p>
+      <p>
+        {{stocksInput[2]}} : {{ sharesMin[2] }}
+      </p>
+      <p>
+        {{stocksInput[3]}} : {{ sharesMin[3] }}
+      </p>
+    </div>
+  </div>
+
+  {% endif %}
+  <!-- <div class="row justify-content-center">
+    <a href="/charts" class="btn btn-primary">View charts</a>
+  </div> -->
   <script>
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.href);
     }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <!-- <script type="text/javascript">
-    window.onload = function () {
-      var options = {
-        chart: {
-          type: "line",
-        },
-        series: [
-          {
-            name: "sales",
-            data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
-          },
-        ],
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-        },
-      };
-
-      var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-      chart.render();
-    };
-  </script> -->
 </div>
 {% endblock %}
